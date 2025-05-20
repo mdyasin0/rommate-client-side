@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#FFFFFF] text-[#111827] py-2 px-5">
+    <div className="bg-[#FFFFFF] text-[#111827] py-5 shadow-2xl px-5 sticky top-0 z-20">
       <nav className="flex items-center justify-between ">
         <div>
           <h1 className="text-indigo-600  text-2xl  font-bold  ">
@@ -10,9 +11,9 @@ const Navbar = () => {
           </h1>
         </div>
         <ul className="flex items-center gap-7 ">
-          <li className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer">
+          <Link to="/home" className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer">
             Home
-          </li>
+          </Link>
           <li className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer">
             Add to Find Roommate
           </li>

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "1",
+    "title": "Cozy Room in Mirpur for Student",
+    "status": "Available",
+    "rent": "4500 BDT",
+    "location": "Mirpur-1, Dhaka",
+    "postBy": "Rahim",
+    "date": "2025-05-18",
+    "image": "https://i.ibb.co/C3g5NfLq/download-1.jpg",
+    "description": "A peaceful room in a quiet area, perfect for students looking for comfort and convenience near university."
+  },
+  {
+    "id": "2",
+    "title": "Spacious Shared Room in Uttara",
+    "status": "Available",
+    "rent": "5000 BDT",
+    "location": "Uttara Sector 10, Dhaka",
+    "postBy": "Kamal",
+    "date": "2025-05-17",
+    "image": "https://i.ibb.co/LDjpSCg3/download-2.jpg",
+    "description": "Big and clean shared room with balcony, close to bus stand and grocery shops, ideal for working people."
+  },
+  {
+    "id": "3",
+    "title": "Roommate Needed in Bashundhara",
+    "status": "Available",
+    "rent": "6000 BDT",
+    "location": "Bashundhara R/A, Dhaka",
+    "postBy": "Tanvir",
+    "date": "2025-05-16",
+    "image": "https://i.ibb.co/CKtjLZTh/download-3.jpg",
+    "description": "Modern apartment with high-speed internet and attached bathroom, searching for friendly roommate immediately."
+  },
+  {
+    "id": "4",
+    "title": "Single Room in Dhanmondi Area",
+    "status": "Available",
+    "rent": "5500 BDT",
+    "location": "Dhanmondi 27, Dhaka",
+    "postBy": "Nafis",
+    "date": "2025-05-15",
+    "image": "https://i.ibb.co/99yvFqnJ/download-4.jpg",
+    "description": "Clean room in a prime location with easy access to restaurants, hospitals, and coaching centers."
+  },
+  {
+    "id": "5",
+    "title": "Bachelor Room at Mohammadpur",
+    "status": "Available",
+    "rent": "4000 BDT",
+    "location": "Mohammadpur, Dhaka",
+    "postBy": "Sakib",
+    "date": "2025-05-14",
+    "image": "https://i.ibb.co/LhBxsS8f/download.jpg",
+    "description": "A simple room available for rent to one male student or bachelor in a peaceful building."
+  },
+  {
+    "id": "6",
+    "title": "Comfortable Room in Banasree",
+    "status": "Available",
+    "rent": "4200 BDT",
+    "location": "Banasree Block D, Dhaka",
+    "postBy": "Alamin",
+    "date": "2025-05-13",
+    "image": "https://i.ibb.co/WjrzrQ3/images-6.jpg",
+    "description": "Newly painted room with fan, window and wardrobe, looking for decent roommate immediately."
+  },
+  {
+    "id": "7",
+    "title": "Shared Room Near Farmgate",
+    "status": "Available",
+    "rent": "4700 BDT",
+    "location": "Farmgate, Dhaka",
+    "postBy": "Hasib",
+    "date": "2025-05-12",
+    "image": "https://i.ibb.co/3mVNrhvJ/images-7.jpg",
+    "description": "Well-connected location with easy access to buses and food, room available for one male roommate."
+  },
+  {
+    "id": "8",
+    "title": "Room for Female in Shantinagar",
+    "status": "Available",
+    "rent": "5300 BDT",
+    "location": "Shantinagar, Dhaka",
+    "postBy": "Rima",
+    "date": "2025-05-11",
+    "image": "https://i.ibb.co/hxZ1Djnq/images-8.jpg",
+    "description": "Secure and clean building, suitable for female students or job holders, available from next week."
+  },
+  {
+    "id": "9",
+    "title": "Modern Apartment Room in Baridhara",
+    "status": "Available",
+    "rent": "7000 BDT",
+    "location": "Baridhara DOHS, Dhaka",
+    "postBy": "Mahin",
+    "date": "2025-05-10",
+    "image": "https://i.ibb.co/NdrqdTRk/images-9.jpg",
+    "description": "Luxury apartment with lift, generator, and WiFi, looking for responsible roommate to share."
+  },
+  {
+    "id": "10",
+    "title": "Student-Friendly Room in Tejgaon",
+    "status": "Available",
+    "rent": "3900 BDT",
+    "location": "Tejgaon, Dhaka",
+    "postBy": "Riyad",
+    "date": "2025-05-09",
+    "image": "https://i.ibb.co/Xk8XYF0H/images-10.jpg",
+    "description": "Budget-friendly room for students, close to college and coaching centers, available from June."
+  },
+  {
+    "id": "11",
+    "title": "AC Room in Gulshan Area",
+    "status": "Available",
+    "rent": "8000 BDT",
+    "location": "Gulshan-2, Dhaka",
+    "postBy": "Fahim",
+    "date": "2025-05-08",
+    "image": "https://i.ibb.co/ynfjmH7k/images-11.jpg",
+    "description": "Fully furnished AC room with attached bathroom and kitchen, perfect for working professionals."
+  },
+  {
+    "id": "12",
+    "title": "Affordable Room in Jatrabari",
+    "status": "Available",
+    "rent": "3500 BDT",
+    "location": "Jatrabari, Dhaka",
+    "postBy": "Shuvo",
+    "date": "2025-05-07",
+    "image": "https://i.ibb.co/1JX9C54p/images-12.jpg",
+    "description": "Low-rent room for students or bachelors, decent environment and owner-friendly, available from now."
+  }
+]
