@@ -3,6 +3,8 @@ import {
 } from "react-router";
 import App from "../App";
 import Home from "./Home";
+import { Component } from "react";
+import Details from "./Details";
 
 
 
@@ -15,7 +17,11 @@ const router = createBrowserRouter([
         {
            path:"/home",
            Component:Home, 
-        }
+        },
+      {
+        path:"/Details/:id",
+        Component: Details,
+      }
     ]
   },
 ]);

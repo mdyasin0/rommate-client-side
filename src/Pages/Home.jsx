@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import {
   Navigation,
   Pagination,
@@ -9,8 +10,31 @@ import {
   Autoplay,
 } from "swiper/modules";
 import "swiper/swiper-bundle.css";
+import { Link } from "react-router";
 
 const Home = () => {
+  const [roommates, setRoommates] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("FeaturedPost.json") // public ফোল্ডারে থাকলে এমনভাবে fetch করতে হবে
+      .then((res) => res.json())
+      .then((data) => {
+        const availableOnly = data.filter(
+          (item) => item.status === "Available"
+        );
+        setRoommates(availableOnly);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading)
+    return (
+       <div className='flex justify-center items-center  mt-20'><span className="loading loading-spinner loading-xl"></span></div> 
+    );
+  const visibleRoommates = showAll ? roommates : roommates.slice(0, 6);
+
   return (
     <div className="bg-gradient-to-t from-indigo-300 via-purple-300 to-pink-200">
       {/* slider */}
@@ -78,6 +102,51 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </section>
+      <h1 className="text-indigo-600  text-center mb-10 text-5xl  font-bold  ">
+            Featured Roommate Post 
+          </h1>
+
+      {/* Featured Roommates Post Section */}
+
+      <div className="p-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {visibleRoommates.map((post) => (
+            <div key={post.id} className="bg-white shadow-md rounded p-4">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-48 object-cover rounded mb-2"
+              />
+              <h2 className="text-lg font-semibold">{post.title}</h2>
+
+              <p>
+                <strong>Location:</strong> {post.location}
+              </p>
+
+              <p>
+                <strong>Date:</strong> {post.date}
+              </p>
+
+              <Link to={`/Details/${post.id}`}>
+                <button className="bg-[#4338CA] py-2 px-3 rounded-lg text-white hover:text-black hover:bg-[#cbc9f3] transition-all duration-[500ms] cursor-pointer">
+                  See More
+                </button>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {roommates.length > 6 && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="bg-[#4338CA] py-2 px-3 rounded-lg text-white hover:text-black hover:bg-[#cbc9f3] transition-all duration-[500ms] cursor-pointer"
+            >
+              {showAll ? "Show Less" : "See All"}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
