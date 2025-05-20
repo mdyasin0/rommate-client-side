@@ -31,7 +31,9 @@ const Home = () => {
 
   if (loading)
     return (
-       <div className='flex justify-center items-center  mt-20'><span className="loading loading-spinner loading-xl"></span></div> 
+      <div className="flex justify-center items-center  mt-20">
+        <span className="loading loading-spinner loading-xl"></span>
+      </div>
     );
   const visibleRoommates = showAll ? roommates : roommates.slice(0, 6);
 
@@ -103,8 +105,8 @@ const Home = () => {
         </Swiper>
       </section>
       <h1 className="text-indigo-600  text-center mb-10 text-5xl  font-bold  ">
-            Featured Roommate Post 
-          </h1>
+        Featured Roommate Post
+      </h1>
 
       {/* Featured Roommates Post Section */}
 
@@ -147,6 +149,70 @@ const Home = () => {
           </div>
         )}
       </div>
+      {/* Why Choose Us */}
+      <section className="py-12 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">
+            Why Choose Us
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold mb-2">Verified Listings</h3>
+              <p>
+                We ensure all posts are reviewed and verified to keep you safe
+                from fraud and scams.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold mb-2">
+                Real-Time Availability
+              </h3>
+              <p>
+                All roommate posts are updated regularly, so you always get
+                fresh and available options.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold mb-2">Easy Communication</h3>
+              <p>
+                Contact posters directly through the platform and make decisions
+                quickly with clear info.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Recent Reviews */}
+      <section className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">
+            Recent Reviews
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
+              <p className="mb-2 italic">
+                "Found my perfect roommate within 3 days. The process was super
+                simple and effective."
+              </p>
+              <p className="font-semibold">– Jannat, Dhaka</p>
+            </div>
+            <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
+              <p className="mb-2 italic">
+                "The verified posts made it really easy to trust the listings.
+                Loved the clean UI!"
+              </p>
+              <p className="font-semibold">– Nahid, Chittagong</p>
+            </div>
+            <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
+              <p className="mb-2 italic">
+                "Highly recommended for students looking for shared
+                accommodations in city areas."
+              </p>
+              <p className="font-semibold">– Tarek, Rajshahi</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
