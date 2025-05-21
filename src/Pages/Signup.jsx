@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const Login = () => {
+const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div>
@@ -13,7 +13,7 @@ const Login = () => {
             <Player
               autoplay
               loop
-              src="Login.json"
+              src="Signup.json"
               style={{ height: "300px", width: "300px" }}
             />
           </div>
@@ -21,10 +21,39 @@ const Login = () => {
           {/* Login Form Section */}
           <div className="">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
-              Login to Your Account
+              Register now
             </h2>
             <form className="space-y-4">
-                
+                <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
+                  placeholder="enter your name"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="image"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                >
+                  Image URL
+                </label>
+                <input
+                  type="text"
+                  id="image"
+                  required
+                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
+                  placeholder="https://......"
+                />
+              </div>
               <div>
                 <label
                   htmlFor="email"
@@ -68,15 +97,15 @@ const Login = () => {
                 type="submit"
                 className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-4 rounded-md transition-colors"
               >
-                Login
+                Sign-up
               </button>
               <p className="text-center text-sm text-gray-600 dark:text-gray-300 mt-4">
-                You don't have an account?{" "}
+                You already have an account?{" "}
                 <a
-                  href="/Signup"
+                  href="/login"
                   className="text-indigo-600 hover:underline dark:text-indigo-400"
                 >
-                  Sign-up
+                  Login
                 </a>
               </p>
             </form>
@@ -87,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
