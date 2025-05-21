@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    login(email, password)
+      .then((result) => {
+        console.log("Login success:", result.user);
+        navigate("/"); // লগইন সফল হলে হোমপেজে নিয়ে যাবে
+      })
+      .catch((error) => {
+        console.error("Login error:", error.message);
+        alert("Invalid email or password!");
+      });
+  };
+
   return (
     <div>
       <section className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8  mx-auto mt-20 flex justify-center items-center max-w-4xl">
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Animation Section */}
-          <div className="">
+          <div>
             <Player
               autoplay
               loop
@@ -19,12 +41,11 @@ const Login = () => {
           </div>
 
           {/* Login Form Section */}
-          <div className="">
+          <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
               Login to Your Account
             </h2>
-            <form className="space-y-4">
-                
+            <form onSubmit={handleLogin} className="space-y-4">
               <div>
                 <label
                   htmlFor="email"
@@ -34,7 +55,7 @@ const Login = () => {
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  name="email"
                   required
                   className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
                   placeholder="you@example.com"
@@ -47,7 +68,6 @@ const Login = () => {
                 >
                   Password
                 </label>
-
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -73,10 +93,10 @@ const Login = () => {
               <p className="text-center text-sm text-gray-600 dark:text-gray-300 mt-4">
                 You don't have an account?{" "}
                 <a
-                  href="/Signup"
+                  href="/register"
                   className="text-indigo-600 hover:underline dark:text-indigo-400"
                 >
-                  Sign-up
+                  Signup
                 </a>
               </p>
             </form>

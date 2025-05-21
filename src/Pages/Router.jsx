@@ -7,6 +7,8 @@ import Error from "./Error";
 import Login from "./Login";
 import Signup from "./Signup";
 import FindRoommateForm from "./FindRoommate";
+import BrowseListings from "./BrowseListings";
+import MyListings from "./MyListings";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,16 @@ const router = createBrowserRouter([
         
          path: "/FindRoommateForm",
         Component: FindRoommateForm,
+      },
+      {
+            path: "/BrowseListings",
+        Component: BrowseListings,
+
+      },
+      {
+            path: "/MyListings",
+        Component: MyListings,
+
       },
       {
         path:"/login",

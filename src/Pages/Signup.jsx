@@ -1,9 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { signup, setuser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const image = form.image.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // পাসওয়ার্ডে অন্তত একটি uppercase এবং একটি lowercase আছে কিনা চেক করা
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+
+    if (!hasUppercase || !hasLowercase) {
+      alert("Password must contain at least one uppercase and one lowercase letter.");
+      return;
+    }
+
+    signup(email, password)
+      .then((result) => {
+        const user = result.user;
+        setuser(user);
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+      });
+  };
+
   return (
     <div>
       <section className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8  mx-auto mt-20 flex justify-center items-center max-w-4xl">
@@ -18,13 +48,13 @@ const Signup = () => {
             />
           </div>
 
-          {/* Login Form Section */}
+          {/* register Form Section */}
           <div className="">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
               Register now
             </h2>
-            <form className="space-y-4">
-                <div>
+            <form onSubmit={handleRegister} className="space-y-4">
+              <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -33,7 +63,7 @@ const Signup = () => {
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  name="name"
                   required
                   className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
                   placeholder="enter your name"
@@ -48,7 +78,7 @@ const Signup = () => {
                 </label>
                 <input
                   type="text"
-                  id="image"
+                  name="image"
                   required
                   className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
                   placeholder="https://......"
@@ -63,7 +93,7 @@ const Signup = () => {
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  name="email"
                   required
                   className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
                   placeholder="you@example.com"
