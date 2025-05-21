@@ -14,9 +14,9 @@ const Navbar = () => {
           <Link to="/home" className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer">
             Home
           </Link>
-          <li className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer">
+          <Link to="/FindRoommateForm" className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer">
             Add to Find Roommate
-          </li>
+          </Link>
           <li className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer">
             Browse Listing
           </li>

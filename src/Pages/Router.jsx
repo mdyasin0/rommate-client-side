@@ -6,6 +6,7 @@ import Details from "./Details";
 import Error from "./Error";
 import Login from "./Login";
 import Signup from "./Signup";
+import FindRoommateForm from "./FindRoommate";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
       {
         path: "/Details/:id",
         Component: Details,
+      },
+      {
+        
+         path: "/FindRoommateForm",
+        Component: FindRoommateForm,
       },
       {
         path:"/login",

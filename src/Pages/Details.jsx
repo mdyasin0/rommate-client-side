@@ -24,6 +24,12 @@ const Details = () => {
       <p><strong>Location:</strong> {roommate.location}</p>
       <p><strong>Posted By:</strong> {roommate.postBy}</p>
       <p><strong>Date:</strong> {roommate.date}</p>
+      <p><strong>Availability :</strong> {roommate.status}</p>
+      <p><strong>Room-Type  :</strong> {roommate.roomType}</p>
+      <p><strong>Lifestyle-Preferences   :</strong> {roommate.lifestylePreferences}</p>
+      <p><strong>Contact-Info   :</strong> {roommate.contactInfo}</p>
+     
+   <p><strong> User-Email   :</strong> {roommate.userEmail}</p>
       <p className="mt-2">{roommate.description}</p>
     </div>
   );

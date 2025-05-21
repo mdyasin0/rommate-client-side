@@ -1,4 +1,4 @@
- [
+[
   {
     "id": "1",
     "title": "Cozy Room in Mirpur for Student",
@@ -8,7 +8,11 @@
     "postBy": "Rahim",
     "date": "2025-05-18",
     "image": "https://i.ibb.co/C3g5NfLq/download-1.jpg",
-    "description": "A peaceful room in a quiet area, perfect for students looking for comfort and convenience near university."
+    "description": "A peaceful room in a quiet area, perfect for students looking for comfort and convenience near university.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "2",
@@ -19,7 +23,11 @@
     "postBy": "Kamal",
     "date": "2025-05-17",
     "image": "https://i.ibb.co/LDjpSCg3/download-2.jpg",
-    "description": "Big and clean shared room with balcony, close to bus stand and grocery shops, ideal for working people."
+    "description": "Big and clean shared room with balcony, close to bus stand and grocery shops, ideal for working people.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "3",
@@ -30,7 +38,11 @@
     "postBy": "Tanvir",
     "date": "2025-05-16",
     "image": "https://i.ibb.co/CKtjLZTh/download-3.jpg",
-    "description": "Modern apartment with high-speed internet and attached bathroom, searching for friendly roommate immediately."
+    "description": "Modern apartment with high-speed internet and attached bathroom, searching for friendly roommate immediately.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "4",
@@ -41,7 +53,11 @@
     "postBy": "Nafis",
     "date": "2025-05-15",
     "image": "https://i.ibb.co/99yvFqnJ/download-4.jpg",
-    "description": "Clean room in a prime location with easy access to restaurants, hospitals, and coaching centers."
+    "description": "Clean room in a prime location with easy access to restaurants, hospitals, and coaching centers.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "5",
@@ -52,7 +68,11 @@
     "postBy": "Sakib",
     "date": "2025-05-14",
     "image": "https://i.ibb.co/LhBxsS8f/download.jpg",
-    "description": "A simple room available for rent to one male student or bachelor in a peaceful building."
+    "description": "A simple room available for rent to one male student or bachelor in a peaceful building.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "6",
@@ -63,7 +83,11 @@
     "postBy": "Alamin",
     "date": "2025-05-13",
     "image": "https://i.ibb.co/WjrzrQ3/images-6.jpg",
-    "description": "Newly painted room with fan, window and wardrobe, looking for decent roommate immediately."
+    "description": "Newly painted room with fan, window and wardrobe, looking for decent roommate immediately.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "7",
@@ -74,7 +98,11 @@
     "postBy": "Hasib",
     "date": "2025-05-12",
     "image": "https://i.ibb.co/3mVNrhvJ/images-7.jpg",
-    "description": "Well-connected location with easy access to buses and food, room available for one male roommate."
+    "description": "Well-connected location with easy access to buses and food, room available for one male roommate.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "8",
@@ -85,7 +113,11 @@
     "postBy": "Rima",
     "date": "2025-05-11",
     "image": "https://i.ibb.co/hxZ1Djnq/images-8.jpg",
-    "description": "Secure and clean building, suitable for female students or job holders, available from next week."
+    "description": "Secure and clean building, suitable for female students or job holders, available from next week.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "9",
@@ -96,7 +128,11 @@
     "postBy": "Mahin",
     "date": "2025-05-10",
     "image": "https://i.ibb.co/NdrqdTRk/images-9.jpg",
-    "description": "Luxury apartment with lift, generator, and WiFi, looking for responsible roommate to share."
+    "description": "Luxury apartment with lift, generator, and WiFi, looking for responsible roommate to share.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "10",
@@ -107,7 +143,11 @@
     "postBy": "Riyad",
     "date": "2025-05-09",
     "image": "https://i.ibb.co/Xk8XYF0H/images-10.jpg",
-    "description": "Budget-friendly room for students, close to college and coaching centers, available from June."
+    "description": "Budget-friendly room for students, close to college and coaching centers, available from June.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "11",
@@ -118,7 +158,11 @@
     "postBy": "Fahim",
     "date": "2025-05-08",
     "image": "https://i.ibb.co/ynfjmH7k/images-11.jpg",
-    "description": "Fully furnished AC room with attached bathroom and kitchen, perfect for working professionals."
+    "description": "Fully furnished AC room with attached bathroom and kitchen, perfect for working professionals.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   },
   {
     "id": "12",
@@ -129,7 +173,10 @@
     "postBy": "Shuvo",
     "date": "2025-05-07",
     "image": "https://i.ibb.co/1JX9C54p/images-12.jpg",
-    "description": "Low-rent room for students or bachelors, decent environment and owner-friendly, available from now."
+    "description": "Low-rent room for students or bachelors, decent environment and owner-friendly, available from now.",
+    "roomType": "Single or Shared",
+    "lifestylePreferences": "No Pets, Non-Smoking, Quiet Hours",
+    "contactInfo": "01XXXXXXXXX",
+    "userEmail": "example@email.com"
   }
 ]
-
