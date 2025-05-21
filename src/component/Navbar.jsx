@@ -25,9 +25,9 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className="flex items-center font-medium  gap-7">
-          <li className="bg-[#4338CA] py-2 px-3 rounded-lg text-white hover:text-black hover:bg-[#cbc9f3] transition-all duration-[500ms] cursor-pointer">
+          <Link to="/login" className="bg-[#4338CA] py-2 px-3 rounded-lg text-white hover:text-black hover:bg-[#cbc9f3] transition-all duration-[500ms] cursor-pointer">
             Login
-          </li>
+          </Link>
           <li className="bg-[#4338CA] hover:text-black py-2 px-3 rounded-lg text-white hover:bg-[#cbc9f3] transition-all duration-[500ms] cursor-pointer">
             Signup
           </li>
