@@ -9,6 +9,9 @@ import Signup from "./Signup";
 import FindRoommateForm from "./FindRoommate";
 import BrowseListings from "./BrowseListings";
 import MyListings from "./MyListings";
+import Terms from "./Terms";
+import Privacy from "./Privacy";
+import Refund from "./Refund";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,18 @@ const router = createBrowserRouter([
       {
         path:"/Signup",
         Component: Signup ,
+      },
+      {
+        path:"/Terms",
+        Component: Terms,
+      },
+      {
+        path:"/Privacy",
+        Component: Privacy ,
+      },
+      {
+        path:"/Refund",
+        Component: Refund ,
       }
     ],
   },

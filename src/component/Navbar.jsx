@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router"; // ✅ ঠিক routerDOM ব্যবহার করো
+import { Link, NavLink } from "react-router"; // ✅ ঠিক routerDOM ব্যবহার করো
 import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip"; // ✅ Tooltip import করো
 import "react-tooltip/dist/react-tooltip.css"; // ✅ Tooltip CSS
@@ -32,30 +32,46 @@ const Navbar = () => {
           <h1 className="text-indigo-600 text-2xl font-bold">RoomieMatch</h1>
         </div>
         <ul className="flex items-center gap-7">
-          <Link
-            to="/home"
-            className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer"
-          >
-            Home
-          </Link>
-          <Link
-            to="/FindRoommateForm"
-            className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer"
-          >
-            Add to Find Roommate
-          </Link>
-          <Link
-            to="/BrowseListings"
-            className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer"
-          >
-            Browse Listing
-          </Link>
-          <Link
-            to="/MyListings"
-            className="hover:border-blue-500 border-b-2 font-medium border-transparent cursor-pointer"
-          >
-            My Listings
-          </Link>
+         <NavLink
+    to="/home"
+    className={({ isActive }) =>
+      `font-medium cursor-pointer border-b-2 ${
+        isActive ? "border-blue-500" : "border-transparent"
+      } hover:border-blue-500`
+    }
+  >
+    Home
+  </NavLink>
+  <NavLink
+    to="/FindRoommateForm"
+    className={({ isActive }) =>
+      `font-medium cursor-pointer border-b-2 ${
+        isActive ? "border-blue-500" : "border-transparent"
+      } hover:border-blue-500`
+    }
+  >
+    Add to Find Roommate
+  </NavLink>
+  <NavLink
+    to="/BrowseListings"
+    className={({ isActive }) =>
+      `font-medium cursor-pointer border-b-2 ${
+        isActive ? "border-blue-500" : "border-transparent"
+      } hover:border-blue-500`
+    }
+  >
+    Browse Listing
+  </NavLink>
+  <NavLink
+    to="/MyListings"
+    className={({ isActive }) =>
+      `font-medium cursor-pointer border-b-2 ${
+        isActive ? "border-blue-500" : "border-transparent"
+      } hover:border-blue-500`
+    }
+  >
+    My Listings
+  </NavLink>
         </ul>
         <ul className="flex items-center font-medium gap-5">
           {user ? (

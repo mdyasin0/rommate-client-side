@@ -2,6 +2,7 @@ import { Outlet } from 'react-router'
 import './App.css'
 import Navbar from './component/Navbar'
 import Login from './Pages/Login'
+import Footer from './Pages/Footer'
 
 
 
@@ -14,6 +15,7 @@ function App() {
     <>
   <Navbar></Navbar>
   <Outlet></Outlet>
+  <Footer></Footer>
   
 
     </>
