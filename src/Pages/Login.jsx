@@ -2,12 +2,14 @@ import React, { useContext, useState } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         console.log("Login success:", result.user);
-        navigate("/"); // লগইন সফল হলে হোমপেজে নিয়ে যাবে
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error("Login error:", error.message);
@@ -28,7 +30,7 @@ const Login = () => {
 
   return (
     <div>
-      <section className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8  mx-auto mt-20 flex justify-center items-center max-w-4xl">
+      <section className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8 mx-auto mt-20 flex justify-center items-center max-w-4xl">
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Animation Section */}
           <div>
@@ -77,7 +79,7 @@ const Login = () => {
                     className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
                   />
                   <span
-                    className="absolute top-1/2 right-3  -translate-y-1/2 text-black cursor-pointer"
+                    className="absolute top-1/2 right-3 -translate-y-1/2 text-black cursor-pointer"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <FaEye /> : <FaEyeSlash />}

@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
-import { Link, NavLink } from "react-router"; // ✅ ঠিক routerDOM ব্যবহার করো
+
+import { Link, NavLink } from "react-router-dom"; // ✅ use 'react-router-dom'
 import { AuthContext } from "../Provider/AuthProvider";
-import { Tooltip } from "react-tooltip"; // ✅ Tooltip import করো
-import "react-tooltip/dist/react-tooltip.css"; // ✅ Tooltip CSS
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+import { useContext } from "react";
+
+
 
 const Navbar = () => {
   const { user, logout, loading } = useContext(AuthContext);
+
 
   const handleLogout = () => {
     logout()
@@ -16,6 +20,9 @@ const Navbar = () => {
         console.error("Logout error:", error);
       });
   };
+
+ 
+  
 
   if (loading) {
     return (
@@ -32,47 +39,50 @@ const Navbar = () => {
           <h1 className="text-indigo-600 text-2xl font-bold">RoomieMatch</h1>
         </div>
         <ul className="flex items-center gap-7">
-         <NavLink
-    to="/home"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    Home
-  </NavLink>
-  <NavLink
-    to="/FindRoommateForm"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    Add to Find Roommate
-  </NavLink>
-  <NavLink
-    to="/BrowseListings"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    Browse Listing
-  </NavLink>
-  <NavLink
-    to="/MyListings"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    My Listings
-  </NavLink>
+          <NavLink
+            to="/home"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/FindRoommateForm"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            Add to Find Roommate
+          </NavLink>
+          <NavLink
+            to="/BrowseListings"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            Browse Listing
+          </NavLink>
+          <NavLink
+            to="/MyListings"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            My Listings
+          </NavLink>
+
+          
         </ul>
+
         <ul className="flex items-center font-medium gap-5">
           {user ? (
             <>

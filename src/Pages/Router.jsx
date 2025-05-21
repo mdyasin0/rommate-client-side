@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import Home from "./Home";
-import { Component } from "react";
 import Details from "./Details";
 import Error from "./Error";
 import Login from "./Login";
@@ -12,6 +11,7 @@ import MyListings from "./MyListings";
 import Terms from "./Terms";
 import Privacy from "./Privacy";
 import Refund from "./Refund";
+import PrivateRoute from "./Privetroute";
 
 const router = createBrowserRouter([
   {
@@ -25,12 +25,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/Details/:id",
-        Component: Details,
+        element: <PrivateRoute>
+          <Details/>
+        </PrivateRoute>,
+        
       },
       {
         
          path: "/FindRoommateForm",
-        Component: FindRoommateForm,
+        element:<PrivateRoute>
+          <FindRoommateForm/>,
+        </PrivateRoute> 
       },
       {
             path: "/BrowseListings",
@@ -39,7 +44,9 @@ const router = createBrowserRouter([
       },
       {
             path: "/MyListings",
-        Component: MyListings,
+        element:<PrivateRoute>
+          <MyListings/>
+        </PrivateRoute> ,
 
       },
       {
