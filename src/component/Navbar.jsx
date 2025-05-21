@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { useContext } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 
 
@@ -36,7 +37,20 @@ const Navbar = () => {
     <div className="bg-[#FFFFFF] text-[#111827] py-5 shadow-2xl px-5 sticky top-0 z-20">
       <nav className="flex items-center justify-between">
         <div>
-          <h1 className="text-indigo-600 text-2xl font-bold">RoomieMatch</h1>
+          <h1 className="text-3xl font-bold text-center ">
+      <span>Roomie</span>
+      <span className="text-emerald-500">
+        <Typewriter
+          words={["Match"]}
+          loop={false}
+          cursor
+          cursorStyle="_"
+          typeSpeed={200}
+          deleteSpeed={100}
+          delaySpeed={5000}
+        />
+      </span>
+    </h1>
         </div>
         <ul className="flex items-center gap-7">
           <NavLink
