@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,7 +16,6 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    // পাসওয়ার্ডে অন্তত একটি uppercase এবং একটি lowercase আছে কিনা চেক করা
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
 
@@ -27,19 +27,38 @@ const Signup = () => {
     signup(email, password)
       .then((result) => {
         const user = result.user;
-        setuser(user);
+
+        // ✅ ইউজারের প্রোফাইল আপডেট
+        updateProfile(user, {
+          displayName: name,
+          photoURL: image,
+        })
+          .then(() => {
+            // ✅ প্রোফাইল আপডেট হয়ে গেলে কনটেক্সটে সেট করা
+            const updatedUser = {
+              ...user,
+              displayName: name,
+              photoURL: image,
+            };
+            setuser(updatedUser);
+            alert("Signup successful!");
+          })
+          .catch((error) => {
+            console.error("Profile update error:", error.message);
+          });
       })
       .catch((error) => {
-        console.error("Error:", error.message);
+        console.error("Signup error:", error.message);
+        alert(error.message);
       });
   };
 
   return (
     <div>
-      <section className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8  mx-auto mt-20 flex justify-center items-center max-w-4xl">
+      <section className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8 mx-auto mt-20 flex justify-center items-center max-w-4xl">
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Animation Section */}
-          <div className="">
+          <div>
             <Player
               autoplay
               loop
@@ -48,75 +67,62 @@ const Signup = () => {
             />
           </div>
 
-          {/* register Form Section */}
-          <div className="">
+          {/* Register Form Section */}
+          <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
               Register now
             </h2>
             <form onSubmit={handleRegister} className="space-y-4">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Name
                 </label>
                 <input
                   type="text"
                   name="name"
                   required
-                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
-                  placeholder="enter your name"
+                  placeholder="Enter your name"
+                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="image"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Image URL
                 </label>
                 <input
                   type="text"
                   name="image"
                   required
-                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
                   placeholder="https://......"
+                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Email address
                 </label>
                 <input
                   type="email"
                   name="email"
                   required
-                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
                   placeholder="you@example.com"
+                  className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Password
                 </label>
-
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
                     name="password"
                     required
                     placeholder="••••••••"
-                    className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-300"
+                    className="mt-1 block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100 shadow-sm"
                   />
                   <span
-                    className="absolute top-1/2 right-3  -translate-y-1/2 text-black cursor-pointer"
+                    className="absolute top-1/2 right-3 -translate-y-1/2 text-black cursor-pointer"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <FaEye /> : <FaEyeSlash />}
