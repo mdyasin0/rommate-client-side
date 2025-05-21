@@ -4,6 +4,8 @@ import Navbar from './component/Navbar'
 
 
 
+
+
 function App() {
 
 
@@ -11,6 +13,7 @@ function App() {
     <>
   <Navbar></Navbar>
   <Outlet></Outlet>
+
     </>
   )
 }

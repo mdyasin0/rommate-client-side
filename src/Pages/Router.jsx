@@ -5,6 +5,7 @@ import App from "../App";
 import Home from "./Home";
 import { Component } from "react";
 import Details from "./Details";
+import Error from "./Error";
 
 
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:"*",
+    Component:Error,
+  }
 ]);
 
 
