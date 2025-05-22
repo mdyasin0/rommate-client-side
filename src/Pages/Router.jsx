@@ -24,51 +24,53 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/Details/:id",
-        element: <PrivateRoute>
-          <Details/>
-        </PrivateRoute>,
-        
+  path: "/details/:id",
+  element: (
+    <PrivateRoute>
+      <Details />
+    </PrivateRoute>
+  ),
+},
+      {
+        path: "/FindRoommateForm",
+        element: (
+          <PrivateRoute>
+            <FindRoommateForm />
+          </PrivateRoute>
+        ),
       },
       {
-        
-         path: "/FindRoommateForm",
-        element:<PrivateRoute>
-          <FindRoommateForm/>,
-        </PrivateRoute> 
-      },
-      {
-            path: "/BrowseListings",
+        path: "/BrowseListings",
         Component: BrowseListings,
-
       },
       {
-            path: "/MyListings",
-        element:<PrivateRoute>
-          <MyListings/>
-        </PrivateRoute> ,
-
+        path: "/MyListings",
+        element: (
+          <PrivateRoute>
+            <MyListings />
+          </PrivateRoute>
+        ),
       },
       {
-        path:"/login",
-        Component: Login ,
+        path: "/login",
+        Component: Login,
       },
       {
-        path:"/Signup",
-        Component: Signup ,
+        path: "/Signup",
+        Component: Signup,
       },
       {
-        path:"/Terms",
+        path: "/Terms",
         Component: Terms,
       },
       {
-        path:"/Privacy",
-        Component: Privacy ,
+        path: "/Privacy",
+        Component: Privacy,
       },
       {
-        path:"/Refund",
-        Component: Refund ,
-      }
+        path: "/Refund",
+        Component: Refund,
+      },
     ],
   },
   {

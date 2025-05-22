@@ -5,7 +5,7 @@ const BrowseListings = () => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    fetch("public/FeaturedPost.json") // or local JSON
+    fetch("http://localhost:3000/roommatefinde") // or local JSON
       .then(res => res.json())
       .then(data => setListings(data));
   }, []);
@@ -35,7 +35,7 @@ const BrowseListings = () => {
                 <td className="px-4 py-2">{post.postBy}</td>
                 <td className="px-4 py-2">
                   <Link
-                    to={`/details/${post.id}`}
+                    to={`/room-details/${post.id}`}
                     className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
                   >
                     See More

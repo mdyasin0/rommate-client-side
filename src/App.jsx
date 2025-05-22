@@ -8,11 +8,13 @@ import Footer from './Pages/Footer'
 
 
 
+
 function App() {
 
 
   return (
     <>
+
        
   <Navbar></Navbar>
   <Outlet></Outlet>
