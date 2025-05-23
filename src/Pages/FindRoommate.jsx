@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import {
   FaMapMarkerAlt,
   FaDollarSign,
@@ -25,7 +25,7 @@ export default function FindRoommateForm() {
     description: "",
     contact: "",
     availability: "",
-    image: "",  // এইটা মিস ছিল, তাই যোগ করলাম
+    image: "",
   });
 
   const handleChange = (e) => {
@@ -41,18 +41,18 @@ export default function FindRoommateForm() {
     };
 
     console.log("Submitted Data:", fullData);
-    fetch('http://localhost:3000/roommatefinde', {
-      method: 'post',
+    fetch("http://localhost:3000/roommatefinde", {
+      method: "post",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(fullData)
+      body: JSON.stringify(fullData),
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log('after adding data to the data base', data);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("after adding data to the data base", data);
         swal("Success!", "Roommate post submitted successfully!", "success");
-        // সাবমিটের পরে ফর্ম রিসেট
+       
         setFormData({
           title: "",
           location: "",
@@ -65,7 +65,7 @@ export default function FindRoommateForm() {
           image: "",
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         swal("Error!", "Failed to submit post.", "error");
       });

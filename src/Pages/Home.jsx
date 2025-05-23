@@ -11,7 +11,6 @@ import {
 } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 
-
 const Home = () => {
   const [data, setData] = useState([]);
   const [showAll, setShowAll] = useState(false);
@@ -25,9 +24,8 @@ const Home = () => {
   const displayedData = showAll ? data : data.slice(0, 6);
 
   return (
-
     <>
-<section className="pt-20 pb-20">
+      <section className="pt-20 pb-20">
         <Swiper
           modules={[
             Navigation,
@@ -90,39 +88,41 @@ const Home = () => {
         </Swiper>
       </section>
 
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Available Rooms</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {displayedData.map((item) => (
-          <div key={item._id} className="border rounded-xl p-4 shadow-md">
-            <img src={item.image} alt={item.title} className="w-full h-48 object-cover rounded-lg mb-2" />
-            <h2 className="text-lg font-semibold">{item.title}</h2>
-            <p className="text-sm text-gray-600">{item.location}</p>
-            <p>Rent: {item.rent} BDT</p>
-            <p>Status: {item.availability}</p>
-          <Link to={`/room-details/${item._id}`}>
-              <button className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
-                See More
-              </button>
-            </Link>
-          </div>
-        ))}
-      </div>
-      {data.length > 6 && (
-        <div className="text-center mt-6">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-          >
-            {showAll ? "Show Less" : "Show More"}
-          </button>
+      <div className="p-4">
+        <h1 className="text-2xl font-bold mb-4">Available Rooms</h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {displayedData.map((item) => (
+            <div key={item._id} className="border rounded-xl p-4 shadow-md">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-48 object-cover rounded-lg mb-2"
+              />
+              <h2 className="text-lg font-semibold">{item.title}</h2>
+              <p className="text-sm text-gray-600">{item.location}</p>
+              <p>Rent: {item.rent} BDT</p>
+              <p>Status: {item.availability}</p>
+              <Link to={`/room-details/${item._id}`}>
+                <button className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
+                  See More
+                </button>
+              </Link>
+            </div>
+          ))}
         </div>
-      )}
-    </div>
-    
+        {data.length > 6 && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+            >
+              {showAll ? "Show Less" : "Show More"}
+            </button>
+          </div>
+        )}
+      </div>
 
-
-<section className="py-12 bg-gray-100">
+      <section className="py-12 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">
             Why Choose Us
@@ -155,8 +155,7 @@ const Home = () => {
         </div>
       </section>
 
-
- <section className="py-12 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">
             Recent Reviews
@@ -186,11 +185,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-
-
-
-
     </>
   );
 };

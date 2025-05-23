@@ -1,16 +1,12 @@
-
-import { Link, NavLink } from "react-router-dom"; // ✅ use 'react-router-dom'
+import { Link, NavLink } from "react-router-dom"; 
 import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { useContext } from "react";
 import { Typewriter } from "react-simple-typewriter";
 
-
-
 const Navbar = () => {
   const { user, logout, loading } = useContext(AuthContext);
-
 
   const handleLogout = () => {
     logout()
@@ -21,9 +17,6 @@ const Navbar = () => {
         console.error("Logout error:", error);
       });
   };
-
- 
-  
 
   if (loading) {
     return (
@@ -38,19 +31,19 @@ const Navbar = () => {
       <nav className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-center ">
-      <span>Roomie</span>
-      <span className="text-emerald-500">
-        <Typewriter
-          words={["Match"]}
-          loop={false}
-          cursor
-          cursorStyle="_"
-          typeSpeed={200}
-          deleteSpeed={100}
-          delaySpeed={5000}
-        />
-      </span>
-    </h1>
+            <span>Roomie</span>
+            <span className="text-emerald-500">
+              <Typewriter
+                words={["Match"]}
+                loop={false}
+                cursor
+                cursorStyle="_"
+                typeSpeed={200}
+                deleteSpeed={100}
+                delaySpeed={5000}
+              />
+            </span>
+          </h1>
         </div>
         <ul className="flex items-center gap-7">
           <NavLink
@@ -93,8 +86,6 @@ const Navbar = () => {
           >
             My Listings
           </NavLink>
-
-          
         </ul>
 
         <ul className="flex items-center font-medium gap-5">

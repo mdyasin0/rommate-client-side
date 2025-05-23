@@ -5,9 +5,9 @@ const BrowseListings = () => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/roommatefinde") // or local JSON
-      .then(res => res.json())
-      .then(data => setListings(data));
+    fetch("http://localhost:3000/roommatefinde") 
+      .then((res) => res.json())
+      .then((data) => setListings(data));
   }, []);
 
   return (

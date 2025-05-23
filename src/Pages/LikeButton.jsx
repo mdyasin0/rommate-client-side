@@ -7,7 +7,7 @@ const LikeButton = () => {
 
   const handleLike = () => {
     setLiked(!liked);
-    setLikeCount(prev => liked ? prev - 1 : prev + 1);
+    setLikeCount((prev) => (liked ? prev - 1 : prev + 1));
   };
 
   return (
@@ -17,7 +17,8 @@ const LikeButton = () => {
         liked ? "bg-red-100 text-red-600" : "bg-gray-100 text-gray-600"
       }`}
     >
-      <p>Like</p><Heart fill={liked ? "red" : "none"} className="w-5 h-5" />
+      <p>Like</p>
+      <Heart fill={liked ? "red" : "none"} className="w-5 h-5" />
       <span>{likeCount}</span>
     </button>
   );

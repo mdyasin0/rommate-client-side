@@ -34,11 +34,7 @@ const Details = () => {
   if (error) return <p className="text-center text-red-500">{error}</p>;
   if (!roomData) return <p className="text-center">Loading...</p>;
 
-  return (
-    <div className="max-w-4xl mx-auto my-10 p-6 border rounded">
-      {/* আপনার JSX */}
-    </div>
-  );
+  return <div className="max-w-4xl mx-auto my-10 p-6 border rounded"></div>;
 };
 
 export default Details;

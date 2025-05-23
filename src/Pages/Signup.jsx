@@ -28,13 +28,13 @@ const Signup = () => {
       .then((result) => {
         const user = result.user;
 
-        // ✅ ইউজারের প্রোফাইল আপডেট
+       
         updateProfile(user, {
           displayName: name,
           photoURL: image,
         })
           .then(() => {
-            // ✅ প্রোফাইল আপডেট হয়ে গেলে কনটেক্সটে সেট করা
+        
             const updatedUser = {
               ...user,
               displayName: name,

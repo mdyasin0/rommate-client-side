@@ -24,13 +24,13 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-  path: "/details/:id",
-  element: (
-    <PrivateRoute>
-      <Details />
-    </PrivateRoute>
-  ),
-},
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/FindRoommateForm",
         element: (
@@ -63,6 +63,7 @@ const router = createBrowserRouter([
         path: "/Terms",
         Component: Terms,
       },
+
       {
         path: "/Privacy",
         Component: Privacy,

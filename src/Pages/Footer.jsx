@@ -28,50 +28,49 @@ const Footer = () => {
           </p>
         </div>
         {/* navbar */}
-        
 
-<ul className="flex flex-col-reverse items-center gap-2">
-  <NavLink
-    to="/home"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    Home
-  </NavLink>
-  <NavLink
-    to="/FindRoommateForm"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    Add to Find Roommate
-  </NavLink>
-  <NavLink
-    to="/BrowseListings"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    Browse Listing
-  </NavLink>
-  <NavLink
-    to="/MyListings"
-    className={({ isActive }) =>
-      `font-medium cursor-pointer border-b-2 ${
-        isActive ? "border-blue-500" : "border-transparent"
-      } hover:border-blue-500`
-    }
-  >
-    My Listings
-  </NavLink>
-</ul>
+        <ul className="flex flex-col-reverse items-center gap-2">
+          <NavLink
+            to="/home"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/FindRoommateForm"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            Add to Find Roommate
+          </NavLink>
+          <NavLink
+            to="/BrowseListings"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            Browse Listing
+          </NavLink>
+          <NavLink
+            to="/MyListings"
+            className={({ isActive }) =>
+              `font-medium cursor-pointer border-b-2 ${
+                isActive ? "border-blue-500" : "border-transparent"
+              } hover:border-blue-500`
+            }
+          >
+            My Listings
+          </NavLink>
+        </ul>
 
         {/* Terms & Conditions */}
         <div>

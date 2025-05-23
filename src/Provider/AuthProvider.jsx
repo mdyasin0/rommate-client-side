@@ -11,7 +11,7 @@ const auth = getAuth(app);
 // AuthProvider Component
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);  // <-- loading state
+  const [loading, setLoading] = useState(true);  
 
   // Signup Function
   const signup = (email, password) => {
@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);  // <-- ইউজার চেক হয়ে গেলে loading false করে দাও
+      setLoading(false);  
     });
 
     return () => {
@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
     signup,
     login,
     logout,
-    loading,  // <-- context এ loading শেয়ার করলাম
+    loading,  
   };
 
   return (

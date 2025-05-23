@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../Provider/AuthProvider"; // path adjust করো
+import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const MyListings = () => {
   const { user, loading } = useContext(AuthContext);
   const [myListings, setMyListings] = useState([]);
+  const navigate = useNavigate();
 
   // fetch data by email
   useEffect(() => {
@@ -39,7 +41,11 @@ const MyListings = () => {
           .then((data) => {
             if (data.deletedCount > 0) {
               setMyListings(myListings.filter((item) => item._id !== id));
-              Swal.fire("Deleted!", "Your listing has been deleted.", "success");
+              Swal.fire(
+                "Deleted!",
+                "Your listing has been deleted.",
+                "success"
+              );
             }
           });
       }
@@ -73,8 +79,8 @@ const MyListings = () => {
                 <td>{item.roomType}</td>
                 <td className="flex gap-2">
                   <button
-                    className="bg-blue-500 text-white px-2 py-1 rounded"
-                    onClick={() => console.log("Update clicked", item._id)}
+                    onClick={() => navigate(`/update/${item._id}`)}
+                    className="btn btn-sm btn-warning"
                   >
                     Update
                   </button>
