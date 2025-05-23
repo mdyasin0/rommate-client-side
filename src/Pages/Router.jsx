@@ -12,6 +12,7 @@ import Terms from "./Terms";
 import Privacy from "./Privacy";
 import Refund from "./Refund";
 import PrivateRoute from "./Privetroute";
+import UpdateRoommate from "./UpdateRoommate"; 
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateRoommate />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/login",
         Component: Login,
       },
@@ -63,7 +72,6 @@ const router = createBrowserRouter([
         path: "/Terms",
         Component: Terms,
       },
-
       {
         path: "/Privacy",
         Component: Privacy,

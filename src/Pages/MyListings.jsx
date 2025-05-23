@@ -8,10 +8,9 @@ const MyListings = () => {
   const [myListings, setMyListings] = useState([]);
   const navigate = useNavigate();
 
-  // fetch data by email
   useEffect(() => {
     if (user?.email) {
-      fetch("http://localhost:3000/roommatefinde")
+      fetch("https://assignment-10-server-side-five-ivory.vercel.app/roommatefinde")
         .then((res) => res.json())
         .then((data) => {
           const userListings = data.filter(
@@ -22,7 +21,6 @@ const MyListings = () => {
     }
   }, [user]);
 
-  // delete handler
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -34,7 +32,7 @@ const MyListings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/roommatefinde/${id}`, {
+        fetch(`https://assignment-10-server-side-five-ivory.vercel.app/roommatefinde/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -57,27 +55,29 @@ const MyListings = () => {
   }
 
   return (
-    <div className="p-5">
-      <h2 className="text-2xl font-bold mb-4">My Roommate Listings</h2>
-      <div className="overflow-x-auto">
-        <table className="table w-full border">
+    <div className="p-5 max-w-7xl mx-auto">
+      <h2 className="text-2xl font-bold mb-6 text-center md:text-left">My Roommate Listings</h2>
+
+      {/* Desktop & Tablet: Table */}
+      <div className="hidden md:block overflow-x-auto border rounded">
+        <table className="table w-full border-collapse border border-gray-300">
           <thead className="bg-gray-200">
             <tr>
-              <th>Title</th>
-              <th>Location</th>
-              <th>Rent</th>
-              <th>Room Type</th>
-              <th>Actions</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Title</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Location</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Rent</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Room Type</th>
+              <th className="border border-gray-300 px-4 py-2 text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
             {myListings.map((item) => (
-              <tr key={item._id}>
-                <td>{item.title}</td>
-                <td>{item.location}</td>
-                <td>{item.rent} BDT</td>
-                <td>{item.roomType}</td>
-                <td className="flex gap-2">
+              <tr key={item._id} className="border border-gray-300 hover:bg-gray-50">
+                <td className="border border-gray-300 px-4 py-2">{item.title}</td>
+                <td className="border border-gray-300 px-4 py-2">{item.location}</td>
+                <td className="border border-gray-300 px-4 py-2">{item.rent} BDT</td>
+                <td className="border border-gray-300 px-4 py-2">{item.roomType}</td>
+                <td className="border border-gray-300 px-4 py-2 flex gap-2">
                   <button
                     onClick={() => navigate(`/update/${item._id}`)}
                     className="btn btn-sm btn-warning"
@@ -85,7 +85,7 @@ const MyListings = () => {
                     Update
                   </button>
                   <button
-                    className="bg-red-500 text-white px-2 py-1 rounded"
+                    className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition"
                     onClick={() => handleDelete(item._id)}
                   >
                     Delete
@@ -95,11 +95,40 @@ const MyListings = () => {
             ))}
           </tbody>
         </table>
-
-        {myListings.length === 0 && (
-          <p className="mt-4 text-center text-gray-500">No listings found.</p>
-        )}
       </div>
+
+      {/* Mobile: Card view */}
+      <div className="md:hidden flex flex-col gap-4">
+        {myListings.map((item) => (
+          <div
+            key={item._id}
+            className="border rounded-lg p-4 shadow-sm bg-white"
+          >
+            <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+            <p><strong>Location:</strong> {item.location}</p>
+            <p><strong>Rent:</strong> {item.rent} BDT</p>
+            <p><strong>Room Type:</strong> {item.roomType}</p>
+            <div className="mt-3 flex gap-3">
+              <button
+                onClick={() => navigate(`/update/${item._id}`)}
+                className="btn btn-sm btn-warning flex-1"
+              >
+                Update
+              </button>
+              <button
+                onClick={() => handleDelete(item._id)}
+                className="bg-red-500 text-white px-3 py-1 rounded flex-1 text-center hover:bg-red-600 transition"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {myListings.length === 0 && (
+        <p className="mt-6 text-center text-gray-500">No listings found.</p>
+      )}
     </div>
   );
 };

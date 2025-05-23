@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import { MdInsertPhoto } from "react-icons/md";
+import { toast } from "react-toastify";
 
 export default function FindRoommateForm() {
   const { user } = useContext(AuthContext);
@@ -40,8 +41,7 @@ export default function FindRoommateForm() {
       userEmail: user?.email || "",
     };
 
-    console.log("Submitted Data:", fullData);
-    fetch("http://localhost:3000/roommatefinde", {
+    fetch("https://assignment-10-server-side-five-ivory.vercel.app/roommatefinde", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -50,9 +50,7 @@ export default function FindRoommateForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("after adding data to the data base", data);
         swal("Success!", "Roommate post submitted successfully!", "success");
-       
         setFormData({
           title: "",
           location: "",
@@ -66,7 +64,7 @@ export default function FindRoommateForm() {
         });
       })
       .catch((err) => {
-        console.error(err);
+        toast.error(err);
         swal("Error!", "Failed to submit post.", "error");
       });
   };
@@ -80,128 +78,43 @@ export default function FindRoommateForm() {
   }
 
   return (
-    <section className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl mt-8">
-      <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600 dark:text-indigo-400">
+    <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl mt-8">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center text-indigo-600 dark:text-indigo-400">
         Find Roommate
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Title */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Title
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <FaInfoCircle className="mr-2 text-gray-500" />
-            <input
-              type="text"
-              name="title"
-              onChange={handleChange}
-              value={formData.title}
-              required
-              className="w-full bg-transparent focus:outline-none"
-              placeholder="Looking for a roommate in NYC"
-            />
-          </div>
-        </div>
 
-        {/* Location */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Location
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <FaMapMarkerAlt className="mr-2 text-gray-500" />
-            <input
-              type="text"
-              name="location"
-              onChange={handleChange}
-              value={formData.location}
-              required
-              className="w-full bg-transparent focus:outline-none"
-            />
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Fields Start */}
+        {[
+          { label: "Title", name: "title", icon: <FaInfoCircle />, placeholder: "Looking for a roommate in NYC" },
+          { label: "Location", name: "location", icon: <FaMapMarkerAlt /> },
+          { label: "Rent Amount", name: "rent", type: "number", icon: <FaDollarSign /> },
+          { label: "Room Type", name: "roomType", icon: <FaHome />, placeholder: "Single, Shared, etc." },
+          { label: "Lifestyle Preferences", name: "lifestyle", icon: <FaInfoCircle />, placeholder: "Pets, Smoking, etc." },
+          { label: "Image URL", name: "image", icon: <MdInsertPhoto />, placeholder: "Enter image URL" },
+          { label: "Contact Info", name: "contact", icon: <FaPhone />, placeholder: "Phone or social link" },
+          { label: "Availability", name: "availability", icon: <FaCalendarCheck />, placeholder: "Available / Not Available" },
+        ].map(({ label, name, icon, placeholder, type = "text" }) => (
+          <div key={name}>
+            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">{label}</label>
+            <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
+              <span className="mr-2 text-gray-500">{icon}</span>
+              <input
+                type={type}
+                name={name}
+                onChange={handleChange}
+                value={formData[name]}
+                required
+                className="w-full bg-transparent focus:outline-none"
+                placeholder={placeholder}
+              />
+            </div>
           </div>
-        </div>
-
-        {/* Rent */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Rent Amount
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <FaDollarSign className="mr-2 text-gray-500" />
-            <input
-              type="number"
-              name="rent"
-              onChange={handleChange}
-              value={formData.rent}
-              required
-              className="w-full bg-transparent focus:outline-none"
-            />
-          </div>
-        </div>
-
-        {/* Room Type */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Room Type
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <FaHome className="mr-2 text-gray-500" />
-            <input
-              type="text"
-              name="roomType"
-              onChange={handleChange}
-              value={formData.roomType}
-              required
-              className="w-full bg-transparent focus:outline-none"
-              placeholder="Single, Shared, etc."
-            />
-          </div>
-        </div>
-
-        {/* Lifestyle */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Lifestyle Preferences
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <FaInfoCircle className="mr-2 text-gray-500" />
-            <input
-              type="text"
-              name="lifestyle"
-              onChange={handleChange}
-              value={formData.lifestyle}
-              required
-              className="w-full bg-transparent focus:outline-none"
-              placeholder="Pets, Smoking, Night Owl, etc."
-            />
-          </div>
-        </div>
-
-        {/* Image URL */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Image URL
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <MdInsertPhoto className="mr-2 text-gray-500" />
-            <input
-              type="text"
-              name="image"
-              onChange={handleChange}
-              value={formData.image}
-              required
-              className="w-full bg-transparent focus:outline-none"
-              placeholder="Enter the room photo URL"
-            />
-          </div>
-        </div>
+        ))}
 
         {/* Description */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Description
-          </label>
+          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">Description</label>
           <textarea
             name="description"
             onChange={handleChange}
@@ -213,50 +126,10 @@ export default function FindRoommateForm() {
           />
         </div>
 
-        {/* Contact */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Contact Info
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <FaPhone className="mr-2 text-gray-500" />
-            <input
-              type="text"
-              name="contact"
-              onChange={handleChange}
-              value={formData.contact}
-              required
-              className="w-full bg-transparent focus:outline-none"
-              placeholder="Phone number or social link"
-            />
-          </div>
-        </div>
-
-        {/* Availability */}
-        <div>
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-            Availability
-          </label>
-          <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50 dark:bg-slate-800">
-            <FaCalendarCheck className="mr-2 text-gray-500" />
-            <input
-              type="text"
-              name="availability"
-              onChange={handleChange}
-              value={formData.availability}
-              required
-              className="w-full bg-transparent focus:outline-none"
-              placeholder="Available / Not Available"
-            />
-          </div>
-        </div>
-
-        {/* User Info (read only) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* User Info (Read-only) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-              User Name
-            </label>
+            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">User Name</label>
             <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-100 dark:bg-slate-700">
               <FaUserAlt className="mr-2 text-gray-500" />
               <input
@@ -267,11 +140,8 @@ export default function FindRoommateForm() {
               />
             </div>
           </div>
-
           <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">
-              Email
-            </label>
+            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-200">Email</label>
             <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-100 dark:bg-slate-700">
               <FaEnvelope className="mr-2 text-gray-500" />
               <input
@@ -284,9 +154,10 @@ export default function FindRoommateForm() {
           </div>
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold transition"
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold transition duration-300 ease-in-out"
         >
           Submit
         </button>

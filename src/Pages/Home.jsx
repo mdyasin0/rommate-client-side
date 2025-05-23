@@ -16,7 +16,7 @@ const Home = () => {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/roommatefinde")
+    fetch("https://assignment-10-server-side-five-ivory.vercel.app/roommatefinde")
       .then((res) => res.json())
       .then((result) => setData(result));
   }, []);
@@ -25,6 +25,7 @@ const Home = () => {
 
   return (
     <>
+      {/* Hero Slider */}
       <section className="pt-20 pb-20">
         <Swiper
           modules={[
@@ -43,56 +44,31 @@ const Home = () => {
           scrollbar={{ draggable: true }}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
         >
-          <SwiperSlide>
-            <img
-              className="w-11/12 h-[600px] mx-auto rounded-2xl"
-              src="https://i.ibb.co/C3g5NfLq/download-1.jpg"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="w-11/12 h-[600px] mx-auto rounded-2xl"
-              src="https://i.ibb.co/LDjpSCg3/download-2.jpg"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="w-11/12 h-[600px] mx-auto rounded-2xl"
-              src="https://i.ibb.co/3mVNrhvJ/images-7.jpg"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="w-11/12 h-[600px] mx-auto rounded-2xl"
-              src="https://i.ibb.co/1JX9C54p/images-12.jpg"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="w-11/12 h-[600px] mx-auto rounded-2xl"
-              src="https://i.ibb.co/LhBxsS8f/download.jpg"
-              alt=""
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="w-11/12 h-[600px] mx-auto rounded-2xl"
-              src="https://i.ibb.co/Xk8XYF0H/images-10.jpg"
-              alt=""
-            />
-          </SwiperSlide>
+          {[
+            "https://i.ibb.co/C3g5NfLq/download-1.jpg",
+            "https://i.ibb.co/LDjpSCg3/download-2.jpg",
+            "https://i.ibb.co/3mVNrhvJ/images-7.jpg",
+            "https://i.ibb.co/1JX9C54p/images-12.jpg",
+            "https://i.ibb.co/LhBxsS8f/download.jpg",
+            "https://i.ibb.co/Xk8XYF0H/images-10.jpg",
+          ].map((img, index) => (
+            <SwiperSlide key={index}>
+              <img
+                className="w-11/12 h-[52vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[600px] mx-auto rounded-2xl object-cover"
+                src={img}
+                alt={`slide-${index}`}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </section>
 
+      {/* Featured Posts */}
       <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Available Rooms</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h1 className="text-3xl text-center font-bold mb-4">Featured Roommates Post</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayedData.map((item) => (
-            <div key={item._id} className="border rounded-xl p-4 shadow-md">
+            <div key={item._id} className="border rounded-xl p-4 shadow-md flex flex-col justify-between h-full">
               <img
                 src={item.image}
                 alt={item.title}
@@ -110,6 +86,7 @@ const Home = () => {
             </div>
           ))}
         </div>
+
         {data.length > 6 && (
           <div className="text-center mt-6">
             <button
@@ -122,12 +99,13 @@ const Home = () => {
         )}
       </div>
 
+      {/* Why Choose Us */}
       <section className="py-12 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">
             Why Choose Us
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
               <h3 className="text-xl font-semibold mb-2">Verified Listings</h3>
               <p>
@@ -155,33 +133,32 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Reviews */}
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">
             Recent Reviews
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
-              <p className="mb-2 italic">
-                "Found my perfect roommate within 3 days. The process was super
-                simple and effective."
-              </p>
-              <p className="font-semibold">– Jannat, Dhaka</p>
-            </div>
-            <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
-              <p className="mb-2 italic">
-                "The verified posts made it really easy to trust the listings.
-                Loved the clean UI!"
-              </p>
-              <p className="font-semibold">– Nahid, Chittagong</p>
-            </div>
-            <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
-              <p className="mb-2 italic">
-                "Highly recommended for students looking for shared
-                accommodations in city areas."
-              </p>
-              <p className="font-semibold">– Tarek, Rajshahi</p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                text: `"Found my perfect roommate within 3 days. The process was super simple and effective."`,
+                author: "– Jannat, Dhaka",
+              },
+              {
+                text: `"The verified posts made it really easy to trust the listings. Loved the clean UI!"`,
+                author: "– Nahid, Chittagong",
+              },
+              {
+                text: `"Highly recommended for students looking for shared accommodations in city areas."`,
+                author: "– Tarek, Rajshahi",
+              },
+            ].map((review, idx) => (
+              <div key={idx} className="border rounded-lg p-4 shadow hover:shadow-md transition">
+                <p className="mb-2 italic">{review.text}</p>
+                <p className="font-semibold">{review.author}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

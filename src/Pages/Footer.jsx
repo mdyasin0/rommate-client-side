@@ -8,12 +8,12 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-100 py-10 mt-16">
-      <div className="max-w-7xl mx-auto px-4 flex justify-between md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Contact Details */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-white">Contact Us</h3>
@@ -27,76 +27,78 @@ const Footer = () => {
             <FaMapMarkerAlt /> Dhaka, Bangladesh
           </p>
         </div>
-        {/* navbar */}
 
-        <ul className="flex flex-col-reverse items-center gap-2">
-          <NavLink
-            to="/home"
-            className={({ isActive }) =>
-              `font-medium cursor-pointer border-b-2 ${
-                isActive ? "border-blue-500" : "border-transparent"
-              } hover:border-blue-500`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/FindRoommateForm"
-            className={({ isActive }) =>
-              `font-medium cursor-pointer border-b-2 ${
-                isActive ? "border-blue-500" : "border-transparent"
-              } hover:border-blue-500`
-            }
-          >
-            Add to Find Roommate
-          </NavLink>
-          <NavLink
-            to="/BrowseListings"
-            className={({ isActive }) =>
-              `font-medium cursor-pointer border-b-2 ${
-                isActive ? "border-blue-500" : "border-transparent"
-              } hover:border-blue-500`
-            }
-          >
-            Browse Listing
-          </NavLink>
-          <NavLink
-            to="/MyListings"
-            className={({ isActive }) =>
-              `font-medium cursor-pointer border-b-2 ${
-                isActive ? "border-blue-500" : "border-transparent"
-              } hover:border-blue-500`
-            }
-          >
-            My Listings
-          </NavLink>
-        </ul>
+        {/* Navigation Links */}
+        <div>
+          <h3 className="text-xl font-semibold mb-4 text-white">Navigation</h3>
+          <ul className="space-y-2">
+            <li>
+              <NavLink
+                to="/home"
+                className={({ isActive }) =>
+                  `font-medium cursor-pointer border-b-2 ${
+                    isActive ? "border-blue-500" : "border-transparent"
+                  } hover:border-blue-500`
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/FindRoommateForm"
+                className={({ isActive }) =>
+                  `font-medium cursor-pointer border-b-2 ${
+                    isActive ? "border-blue-500" : "border-transparent"
+                  } hover:border-blue-500`
+                }
+              >
+                Add to Find Roommate
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/BrowseListings"
+                className={({ isActive }) =>
+                  `font-medium cursor-pointer border-b-2 ${
+                    isActive ? "border-blue-500" : "border-transparent"
+                  } hover:border-blue-500`
+                }
+              >
+                Browse Listing
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/MyListings"
+                className={({ isActive }) =>
+                  `font-medium cursor-pointer border-b-2 ${
+                    isActive ? "border-blue-500" : "border-transparent"
+                  } hover:border-blue-500`
+                }
+              >
+                My Listings
+              </NavLink>
+            </li>
+          </ul>
+        </div>
 
         {/* Terms & Conditions */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-white">Legal</h3>
           <ul className="space-y-2">
             <li>
-              <Link
-                to="/Terms"
-                className="hover:text-indigo-500 transition-colors"
-              >
+              <Link to="/Terms" className="hover:text-indigo-500 transition-colors">
                 Terms & Conditions
               </Link>
             </li>
             <li>
-              <Link
-                to="/Privacy"
-                className="hover:text-indigo-500 transition-colors"
-              >
+              <Link to="/Privacy" className="hover:text-indigo-500 transition-colors">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link
-                to="/Refund"
-                className="hover:text-indigo-500 transition-colors"
-              >
+              <Link to="/Refund" className="hover:text-indigo-500 transition-colors">
                 Refund Policy
               </Link>
             </li>

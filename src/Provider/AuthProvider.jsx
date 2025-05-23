@@ -1,17 +1,25 @@
 import React, { createContext, useEffect, useState } from "react";
 import app from "../Firebese/Firebese.config";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  onAuthStateChanged, 
+  signOut, 
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "firebase/auth";
 
 // Create Context
 export const AuthContext = createContext();
 
 // Firebase Auth Instance
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
-// AuthProvider Component
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);  
+  const [loading, setLoading] = useState(true);
 
   // Signup Function
   const signup = (email, password) => {
@@ -28,16 +36,19 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // Google SignIn Function
+  const googleSignIn = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
   // Auth State Listener
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);  
+      setLoading(false);
     });
 
-    return () => {
-      unsubscribe();
-    };
+    return () => unsubscribe();
   }, []);
 
   // Data to Share
@@ -47,7 +58,8 @@ const AuthProvider = ({ children }) => {
     signup,
     login,
     logout,
-    loading,  
+    googleSignIn,
+    loading,
   };
 
   return (

@@ -1,12 +1,50 @@
-# React + Vite
+# 🏠 Roommate Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete web platform to find your ideal roommate based on location, rent, and preferences.
 
-Currently, two official plugins are available:
+## 🌐 Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[👉 Visit Roommate Finder](https://your-live-site-url.com)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+- 🔐 **User Authentication** using Firebase.
+- 📃 **CRUD Functionalities** for roommate listings (Create, Read, Update, Delete).
+- 📱 **Fully Responsive** design for mobile, tablet, and desktop.
+- 🔒 **Protected Routes** for sensitive pages.
+- 🎨 **Engaging UI** with Swiper, Lottie Animations, and Typewriter effects.
+- 🔔 **Interactive Alerts** using SweetAlert2 and React Toastify.
+
+---
+
+## 🧰 Tech Stack
+
+- **Frontend:** Vite, React.js, Tailwind CSS, DaisyUI
+- **Backend:** Node.js, Express.js, MongoDB
+- **Authentication:** Firebase Authentication
+- **Routing:** React Router
+- **UI Enhancements:** Swiper, Lottie, Lucide React, React Tooltip, React Simple Typewriter
+- **Notifications:** SweetAlert, SweetAlert2, React Toastify
+
+---
+
+## 📦 Installed Packages
+
+### Frontend Packages:
+```bash
+npm install vite
+npm install react react-dom
+npm install tailwindcss 
+npm install daisyui
+npm install react-router-dom
+npm install swiper
+npm install lottie-react
+npm install sweetalert
+npm install sweetalert2
+npm install lucide-react
+npm install firebase
+npm install react-tooltip
+npm install react-simple-typewriter
+npm install react-toastify
