@@ -4,7 +4,7 @@ A complete web platform to find your ideal roommate based on location, rent, and
 
 ## 🌐 Live Site
 
-[👉 Visit Roommate Finder](https://your-live-site-url.com)
+[👉 Visit Roommate Finder]([https://your-live-site-url.com](https://chimerical-frangollo-6b3418.netlify.app/))
 
 ---
 
