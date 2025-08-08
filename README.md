@@ -2,9 +2,7 @@
 
 A complete web platform to find your ideal roommate based on location, rent, and preferences.
 
-## 🌐 Live Site
-
-[👉 Visit Roommate Finder]([(https://chimerical-frangollo-6b3418.netlify.app/)])
+## 🌐 Live Site [👉 Visit Roommate Finder]([(https://chimerical-frangollo-6b3418.netlify.app/)])
 
 ---
 
